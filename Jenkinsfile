@@ -11,7 +11,7 @@ pipeline {
                                 echo "Test"
                                                                }
                 }
-		 stage ('Intergation Test'){
+		 stage ('Intergation Test') {
                         steps {
                                 echo "Intergration test"
                                 }
@@ -22,7 +22,7 @@ pipeline {
 			echo 'I am awesome'
 		}
 		success {
-			echo ' SUccess'
+			echo 'SUccess'
 		}
 		failure {
 			echo 'Fail'
