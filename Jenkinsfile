@@ -4,24 +4,25 @@ pipeline {
 		stage ('Test'){
 			steps {
 				echo "Build"
-							}
+			}
 		}
 		 stage ('Build') {
                         steps {
                                 echo "Test"
-                                                               }
+			 }
                 }
 		 stage ('Intergation Test') {
                         steps {
                                 echo "Intergration test"
-                                }
+			}
                 }
-	}  post {
+	} 
+	 post {
 		always {
 			echo 'I am awesome'
 		}
 		success {
-			echo 'SUccess'
+			echo 'Hey Success'
 		}
 		failure {
 			echo 'Fail'
