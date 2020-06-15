@@ -17,5 +17,15 @@ pipeline {
                                 }
                 }
 
+	} post {
+		always {
+			echo 'I am awesome'
+		}
+		success {
+			echo ' SUccess'
+		}
+		failure {
+			echo 'Fail'
+		}
 	}
 }	
