@@ -21,13 +21,19 @@ pipeline {
 		 stage ('Build') {
                         steps {
                                 sh 'mvn clean compile'
+				sh 'mvn package'
 			 }
                 }
 		 stage ('Intergation Test') {
                         steps {
-                                echo "Intergration test"
-				sh 'mvn test'
-				sh 'mvn failsafe:integration-test failsafe:verify'
+				script {
+					dockerImage= docker.build("jamelia1303/currency-exchange-devops:${env.BUILD_TAG}")	
+					docker.withRegistry('' , 'docker') {
+						dockerImage.push();
+						dockerImage.push('latest');
+					}
+				
+				
 			}
                 }
 	} 
