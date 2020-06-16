@@ -20,12 +20,14 @@ pipeline {
 		}
 		 stage ('Build') {
                         steps {
-                                echo "Test"
+                                sh 'mvn clean compile'
 			 }
                 }
 		 stage ('Intergation Test') {
                         steps {
                                 echo "Intergration test"
+				sh 'mvn test'
+				sh 'mvn failsafe:integration-test failsafe:verify'
 			}
                 }
 	} 
